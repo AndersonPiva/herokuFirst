@@ -1,0 +1,11 @@
+<div id="my-users">
+  <div class="page-delimiter first-page" data-page="<%= params[:page] || 1 %>"></div>
+  <%= render @users %>
+</div>
+<% if @users.next_page %>
+    <div id="infinite-scrolling">
+      <div style="text-align: center">
+            <%= will_paginate %>
+      </div>
+    </div>
+<% end %>

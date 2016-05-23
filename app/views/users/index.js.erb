@@ -1,0 +1,9 @@
+var delimiter =
+        $('<div class="page-delimiter" data-page="<%= params[:page] %>"></div>');
+$('#my-users').append(delimiter);
+$('#my-users').append('<%= j render @users %>');
+$('.pagination').replaceWith('<%= j will_paginate @users %>');
+preparePagination(delimiter);
+<% unless @users.next_page %>
+$('#infinite-scrolling .pagination').remove();
+<% end %>
