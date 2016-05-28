@@ -1,6 +1,8 @@
 <div id="my-users">
   <div class="page-delimiter first-page" data-page="<%= params[:page] || 1 %>"></div>
-  <%= render @users %>
+  <% @users.each do |user| %>
+    <%= render partial: 'users/user', locals: {user: user} %>
+  <% end %>
 </div>
 <% if @users.next_page %>
     <div id="infinite-scrolling">
